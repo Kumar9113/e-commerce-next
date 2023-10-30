@@ -71,33 +71,33 @@ export default function OrderDetails() {
           <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:p-6 xl:p-8 w-full">
             <p className="font-bol text-lg ">Your order summary</p>
             {orderDetails &&
-            orderDetails.orderItems &&
-            orderDetails.orderItems.length
+              orderDetails.orderItems &&
+              orderDetails.orderItems.length
               ? orderDetails.orderItems.map((item) => (
-                  <div
-                    key={item._id}
-                    className="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
-                  >
-                    <div className="pb-4 md:pb-8 w-full md:w-40">
-                      <img
-                        src={item && item.product && item.product.imageUrl}
-                        className="w-full hidden md:block"
-                      />
+                <div
+                  key={item._id}
+                  className="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
+                >
+                  <div className="pb-4 md:pb-8 w-full md:w-40 ">
+                    <img
+                      src={item && item.product && item.product.imageUrl}
+                      className="w-full hidden md:block"
+                    />
+                  </div>
+                  <div className="border-b border-gray-300 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
+                    <div className="w-full flex flex-col justify-start items-start space-y-8">
+                      <h3 className="text-xl font-semibold leading-6 text-gray-900">
+                        {item && item.product && item.product.name}
+                      </h3>
                     </div>
-                    <div className="border-b border-gray-300 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
-                      <div className="w-full flex flex-col justify-start items-start space-y-8">
-                        <h3 className="text-xl font-semibold leading-6 text-gray-900">
-                          {item && item.product && item.product.name}
-                        </h3>
-                      </div>
-                      <div className="w-full flex justify-between items-start space-x-8">
-                        <h3 className="text-xl font-semibold leading-6 text-gray-900">
-                          ${item && item.product && item.product.price}
-                        </h3>
-                      </div>
+                    <div className="w-full flex justify-between items-start space-x-8">
+                      <h3 className="text-xl font-semibold leading-6 text-gray-900">
+                        ${item && item.product && item.product.price}
+                      </h3>
                     </div>
                   </div>
-                ))
+                </div>
+              ))
               : null}
           </div>
           <div className="flex justify-center flex-col md:flex-row items-stretch w-full space-y-4 md:space-y-0 md:space-x-5 xl:space-x-8">

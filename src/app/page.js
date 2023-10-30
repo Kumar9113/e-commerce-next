@@ -23,7 +23,7 @@ export default function Home() {
     getListOfProducts();
   }, []);
 
-  // console.log(products);
+  console.log(process.env.DATABASE_URL);
   const getrandom = (max) => {
     return Math.floor(Math.random() * max);
   }

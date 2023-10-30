@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
-
 const configOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
+//console.log(process.env.DATABASE_URL);
 
 const connectToDB = async () => {
-  const connectionUrl =
-    "mongodb+srv://Kumar:Kumar%409113@cluster0.xrhjxpn.mongodb.net/?retryWrites=true&w=majority";
+  const connectionUrl = await process.env.DATABASE_URL
+  //"mongodb+srv://Kumar:Kumar%409113@cluster0.xrhjxpn.mongodb.net/?retryWrites=true&w=majority";
 
   mongoose
     .connect(connectionUrl, configOptions)
