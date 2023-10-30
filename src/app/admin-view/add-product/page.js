@@ -18,7 +18,7 @@ import { toast } from "react-toastify";
 
 
 const app = initializeApp(firebaseConfig);
-const storage = getStorage(app, firebaseStroageURL)
+const storage = getStorage(app, process.env.firebase_StroageURL)
 
 const createUniqueFileName = (getFile) => {
     const timeStamp = Date.now();

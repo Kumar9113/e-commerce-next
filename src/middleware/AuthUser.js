@@ -8,7 +8,7 @@ const AuthUser = async (req) => {
   if (!token) return false;
 
   try {
-    const extractAuthUserInfo = jwt.verify(token, "default_secret_key");
+    const extractAuthUserInfo = jwt.verify(token, process.env.SECRET_KEY);
     if (extractAuthUserInfo) return extractAuthUserInfo;
   } catch (e) {
     console.log(e);
