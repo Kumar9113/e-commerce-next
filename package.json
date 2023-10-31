@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
+    "encoding": "^0.1.13",
     "postcss": "latest",
     "tailwindcss": "^3.3.3"
   }

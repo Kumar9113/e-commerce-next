@@ -80,12 +80,6 @@ export default function AdminAddNewProduct() {
 
 
 
-
-
-
-
-
-
     async function handleImage(event) {
 
         const extractImageUrl = await helperForUPloadingImageToFirebase(
