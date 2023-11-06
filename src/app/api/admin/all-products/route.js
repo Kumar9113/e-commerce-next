@@ -1,3 +1,4 @@
+
 import connectToDB from "@/app/database";
 import AuthUser from "@/middleware/AuthUser";
 import Product from "@/models/product";
@@ -7,8 +8,8 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req) {
   try {
-    await connectToDB();
 
+    await connectToDB();
 
     const extractAllproducts = await Product.find({});
 
