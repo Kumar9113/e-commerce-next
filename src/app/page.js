@@ -1,7 +1,7 @@
 "use client";
 
 import { GlobalContext } from "@/context";
-import { getAllAdminProducts } from "@/services/product";
+import { getAllAdminProducts, getAllProducts } from "@/services/product";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
@@ -12,10 +12,10 @@ export default function Home() {
   const router = useRouter();
 
   async function getListOfProducts() {
-    const res = await getAllAdminProducts();
+    const res = await getAllProducts();
 
     if (res?.success) {
-      setProducts(res.data);
+      setProducts(res?.data);
     }
   }
 
@@ -23,17 +23,17 @@ export default function Home() {
     getListOfProducts();
   }, []);
 
-  console.log(process.env.DATABASE_URL);
+  console.log(process.env.SERVER);
   const getrandom = (max) => {
     return Math.floor(Math.random() * max);
   }
 
   const arr = [getrandom(9), getrandom(9)];
-  // useEffect(() => {
-  //   console.log(arr);
-  //   arr.sort();
+  useEffect(() => {
+    console.log(arr);
+    arr.sort();
 
-  // }, [arr])
+  }, [])
   const filt = [];
   // useEffect(() => {
   //   console.log(filt)

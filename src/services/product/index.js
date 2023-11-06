@@ -23,7 +23,7 @@ export const addNewProduct = async (formData) => {
 
 export const getAllAdminProducts = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/admin/all-products", {
+    const res = await fetch(`${process.env.SERVER}/api/admin/all-products`, {
       method: "GET",
       cache: "no-store",
     });
@@ -35,7 +35,20 @@ export const getAllAdminProducts = async () => {
     console.log(error);
   }
 };
+export const getAllProducts = async () => {
+  try {
+    const res = await fetch(`/api/admin/all-products`, {
+      method: "GET",
+      cache: "no-store",
+    });
 
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const updateAProduct = async (formData) => {
   try {
     const res = await fetch("/api/admin/update-product", {
@@ -76,7 +89,7 @@ export const deleteAProduct = async (id) => {
 export const productByCategory = async (id) => {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/admin/product-by-category?id=${id}`,
+      `${process.env.SERVER}/api/admin/product-by-category?id=${id}`,
       {
         method: "GET",
         cache: "no-store",
@@ -94,7 +107,7 @@ export const productByCategory = async (id) => {
 export const productById = async (id) => {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/admin/product-by-id?id=${id}`,
+      `${process.env.SERVER}/api/admin/product-by-id?id=${id}`,
       {
         method: "GET",
         cache: "no-store",
