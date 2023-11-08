@@ -37,6 +37,7 @@ export async function POST(req) {
     }
 
     const checkPassword = await compare(password, checkUser.password);
+
     if (!checkPassword) {
       return NextResponse.json({
         success: false,

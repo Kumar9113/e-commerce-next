@@ -34,6 +34,7 @@ async function helperForUPloadingImageToFirebase(file) {
     const uploadImage = uploadBytesResumable(storageReference, file);
 
     return new Promise((resolve, reject) => {
+
         uploadImage.on(
             "state_changed",
             (snapshot) => { },
