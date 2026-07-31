@@ -29,7 +29,7 @@ export default function Checkout() {
   const params = useSearchParams();
 
   const publishableKey =
-    "pk_test_51NvXoPSGHTmj0WbIs2lIANatzi7xP62ziJ3n99XuY2SPBpFAMMG4M7JbNdWWLwKodJxUwHqD9gCdIcqG8u8cvA3T00PDkvFoSe";
+    "pk_test_51TzCIH0G2TgWtSnv9EVYS4YgLx9GFEem6bad1vpLIkFnxJgkHpC3QnoZH3j9YqBuucUuQSyjbA2bF7HIHfVRjLSd00cBqMtScb";
   const stripePromise = loadStripe(publishableKey);
 
   console.log(cartItems);
