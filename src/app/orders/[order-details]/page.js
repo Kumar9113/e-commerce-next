@@ -53,10 +53,10 @@ export default function OrderDetails() {
   return (
     <div className="py-14 px-4 md:px-6">
       <div className="flex justify-start items-start space-y-2 flex-col">
-        <h1 className="text-3xl lg:text-4xl font-bold leading-7 lg:leading-9 text-gray-900">
+        <h1 className="text-3xl lg:text-4xl font-bold leading-7 lg:leading-9 text-ink">
           Order #{orderDetails && orderDetails._id}
         </h1>
-        <p className="text-base font-medium leadong-6 text-gray-600">
+        <p className="text-base font-medium leadong-6 text-muted">
           {orderDetails &&
             orderDetails.createdAt &&
             orderDetails.createdAt.split("T")[0]}{" "}
@@ -68,7 +68,7 @@ export default function OrderDetails() {
       </div>
       <div className="mt-10 flex flex-col justify-center xl:flex-row items-stretch w-full xl:space-x-8 md:space-y-6 xl:space-y-0">
         <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-          <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:p-6 xl:p-8 w-full">
+          <div className="flex flex-col justify-start items-start bg-canvas px-4 py-4 md:p-6 xl:p-8 w-full">
             <p className="font-bol text-lg ">Your order summary</p>
             {orderDetails &&
               orderDetails.orderItems &&
@@ -84,14 +84,14 @@ export default function OrderDetails() {
                       className="w-full hidden md:block"
                     />
                   </div>
-                  <div className="border-b border-gray-300 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
+                  <div className="border-b border-brand-light md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
                     <div className="w-full flex flex-col justify-start items-start space-y-8">
-                      <h3 className="text-xl font-semibold leading-6 text-gray-900">
+                      <h3 className="text-xl font-semibold leading-6 text-ink">
                         {item && item.product && item.product.name}
                       </h3>
                     </div>
                     <div className="w-full flex justify-between items-start space-x-8">
-                      <h3 className="text-xl font-semibold leading-6 text-gray-900">
+                      <h3 className="text-xl font-semibold leading-6 text-ink">
                         ${item && item.product && item.product.price}
                       </h3>
                     </div>
@@ -101,24 +101,24 @@ export default function OrderDetails() {
               : null}
           </div>
           <div className="flex justify-center flex-col md:flex-row items-stretch w-full space-y-4 md:space-y-0 md:space-x-5 xl:space-x-8">
-            <div className="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 space-y-6">
-              <h3 className="text-xl font-semibold leading-6 text-gray-900">
+            <div className="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-canvas space-y-6">
+              <h3 className="text-xl font-semibold leading-6 text-ink">
                 Summary
               </h3>
-              <div className="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
+              <div className="flex justify-center items-center w-full space-y-4 flex-col border-brand-light border-b pb-4">
                 <div className="flex justify-between w-full">
-                  <p className="text-base leading-5 text-gray-800">Subtotal</p>
-                  <p className="text-base leading-5 text-gray-900">
+                  <p className="text-base leading-5 text-ink">Subtotal</p>
+                  <p className="text-base leading-5 text-ink">
                     ${orderDetails && orderDetails.totalPrice}
                   </p>
                 </div>
                 <div className="flex justify-between w-full">
-                  <p className="text-base leading-5 text-gray-800">Shipping</p>
-                  <p className="text-base leading-5 text-gray-900">Free</p>
+                  <p className="text-base leading-5 text-ink">Shipping</p>
+                  <p className="text-base leading-5 text-ink">Free</p>
                 </div>
                 <div className="flex justify-between w-full">
-                  <p className="text-base leading-5 text-gray-800">Subtotal</p>
-                  <p className="text-base leading-5 text-gray-900">
+                  <p className="text-base leading-5 text-ink">Subtotal</p>
+                  <p className="text-base leading-5 text-ink">
                     ${orderDetails && orderDetails.totalPrice}
                   </p>
                 </div>
@@ -127,16 +127,16 @@ export default function OrderDetails() {
           </div>
         </div>
         <div className="flex flex-col gap-5">
-          <div className="bg-gray-50 w-full xl:w-96 flex  items-center md:items-start px-4 py-6 flex-col">
-            <h3 className="text-xl font-semibold leading-6 text-gray-900">
+          <div className="bg-canvas w-full xl:w-96 flex  items-center md:items-start px-4 py-6 flex-col">
+            <h3 className="text-xl font-semibold leading-6 text-ink">
               Customer Details
             </h3>
             <div className="flex flex-col justify-start items-start flex-shrink-0">
-              <div className="flex gap-4 justify-center flex-col w-full md:justify-start   py-8 border-b border-gray-200">
-                <p className="text-base font-semibold leading-4 text-left text-gray-950">
+              <div className="flex gap-4 justify-center flex-col w-full md:justify-start   py-8 border-b border-brand-light">
+                <p className="text-base font-semibold leading-4 text-left text-ink">
                   Name: {user?.name}
                 </p>
-                <p className="text-base font-semibold leading-4 text-left text-gray-950">
+                <p className="text-base font-semibold leading-4 text-left text-ink">
                   Email: {user?.email}
                 </p>
               </div>
@@ -164,7 +164,7 @@ export default function OrderDetails() {
           </div>
           <button
             onClick={() => router.push(`/`)}
-            className="mt-5 mr-5  inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+            className="mt-5 mr-5  inline-block bg-brand hover:bg-brand-dark transition-colors text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
           >
             Shop Again
           </button>

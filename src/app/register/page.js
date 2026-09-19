@@ -67,7 +67,7 @@
 //               </p>
 //               {isRegistered ? (
 //                 <button
-//                   className="inline-flex w-full items-center justify-center bg-black px-6 py-4 text-lg
+//                   className="inline-flex w-full items-center justify-center bg-brand hover:bg-brand-dark transition-colors px-6 py-4 text-lg
 //             text-white transition-all duration-200 ease-in-out focus:shadow font-medium uppercase tracking-wide
 //             "
 //                   onClick={() => router.push('/login')}
@@ -105,7 +105,7 @@
 //                     ) : null
 //                   )}
 //                   <button
-//                     className=" disabled:opacity-50   inline-flex w-full items-center justify-center bg-black px-6 py-4 text-lg
+//                     className=" disabled:opacity-50   inline-flex w-full items-center justify-center bg-brand hover:bg-brand-dark transition-colors px-6 py-4 text-lg
 //                text-white transition-all duration-200 ease-in-out focus:shadow font-medium uppercase tracking-wide"
 //                     disabled={!isFormValid()}
 //                     onClick={handleRegisterOnSubmit} >Register
@@ -206,7 +206,7 @@ export default function Register() {
               </p>
               {isRegistered ? (
                 <button
-                  className="inline-flex w-full items-center justify-center bg-black px-6 py-4 text-lg 
+                  className="inline-flex w-full items-center justify-center bg-brand hover:bg-brand-dark transition-colors px-6 py-4 text-lg 
                 text-white transition-all duration-200 ease-in-out focus:shadow font-medium uppercase tracking-wide
                 "
                   onClick={() => router.push('/login')}
@@ -244,7 +244,7 @@ export default function Register() {
                     ) : null
                   )}
                   <button
-                    className=" disabled:opacity-50 inline-flex w-full items-center justify-center bg-black px-6 py-4 text-lg 
+                    className=" disabled:opacity-50 inline-flex w-full items-center justify-center bg-brand hover:bg-brand-dark transition-colors px-6 py-4 text-lg 
                    text-white transition-all duration-200 ease-in-out focus:shadow font-medium uppercase tracking-wide
                    "
                     disabled={!isFormValid()}

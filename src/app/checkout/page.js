@@ -164,7 +164,7 @@ export default function Checkout() {
 
   if (orderSuccess) {
     return (
-      <section className="h-screen bg-gray-200">
+      <section className="h-screen bg-canvas">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mt-8 max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
             <div className="bg-white shadow">
@@ -226,9 +226,9 @@ export default function Checkout() {
             )}
           </div>
         </div>
-        <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
+        <div className="mt-10 bg-canvas px-4 pt-8 lg:mt-0">
           <p className="text-xl font-medium">Shipping address details</p>
-          <p className="text-gray-400 font-bold">
+          <p className="text-muted font-bold">
             Complete your order by selecting address below
           </p>
           <div className="w-full mt-6 mr-0 mb-0 ml-0 space-y-6">
@@ -245,7 +245,7 @@ export default function Checkout() {
                   <p>City : {item.city}</p>
                   <p>Country : {item.country}</p>
                   <p>PostalCode : {item.postalCode}</p>
-                  <button className="mt-5 mr-5 inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide">
+                  <button className="mt-5 mr-5 inline-block bg-brand hover:bg-brand-dark transition-colors text-white px-5 py-3 text-xs font-medium uppercase tracking-wide">
                     {item._id === selectedAddress
                       ? "Selected Address"
                       : "Select Address"}
@@ -258,14 +258,14 @@ export default function Checkout() {
           </div>
           <button
             onClick={() => router.push("/account")}
-            className="mt-5 mr-5 inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+            className="mt-5 mr-5 inline-block bg-brand hover:bg-brand-dark transition-colors text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
           >
             Add new address
           </button>
           <div className="mt-6 border-t border-b py-2">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-900">Subtotal</p>
-              <p className="text-lg font-bold text-gray-900">
+              <p className="text-sm font-medium text-ink">Subtotal</p>
+              <p className="text-lg font-bold text-ink">
                 $
                 {cartItems && cartItems.length
                   ? cartItems.reduce(
@@ -276,12 +276,12 @@ export default function Checkout() {
               </p>
             </div>
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-900">Shipping</p>
-              <p className="text-lg font-bold text-gray-900">Free</p>
+              <p className="text-sm font-medium text-ink">Shipping</p>
+              <p className="text-lg font-bold text-ink">Free</p>
             </div>
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-900">Total</p>
-              <p className="text-lg font-bold text-gray-900">
+              <p className="text-sm font-medium text-ink">Total</p>
+              <p className="text-lg font-bold text-ink">
                 $
                 {cartItems && cartItems.length
                   ? cartItems.reduce(
@@ -298,7 +298,7 @@ export default function Checkout() {
                   Object.keys(checkoutFormData.shippingAddress).length === 0
                 }
                 onClick={handleCheckout}
-                className="disabled:opacity-50 mt-5 mr-5 w-full  inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+                className="disabled:opacity-50 mt-5 mr-5 w-full  inline-block bg-brand hover:bg-brand-dark transition-colors text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
               >
                 Checkout
               </button>

@@ -8,48 +8,12 @@ import ComponentLevelLoader from "@/components/Loader/componentlevel";
 import Notification from "@/components/Notification";
 import { GlobalContext } from "@/context";
 import { addNewProduct, updateAProduct } from "@/services/product";
-import { AvailableSizes, adminAddProductformControls, firebaseConfig, firebaseStroageURL } from "@/utils";
-import { initializeApp } from 'firebase/app'
-import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
+import { uploadImage } from "@/services/storage";
+import { AvailableSizes, adminAddProductformControls } from "@/utils";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-
-
-const app = initializeApp(firebaseConfig);
-const storage = getStorage(app, process.env.firebase_StroageURL)
-
-const createUniqueFileName = (getFile) => {
-    const timeStamp = Date.now();
-    const randomStringValue = Math.random().toString(36).substring(2, 12);
-
-    return `${getFile.name}-${timeStamp}-${randomStringValue}`;
-};
-
-async function helperForUPloadingImageToFirebase(file) {
-    const getFileName = createUniqueFileName(file);
-    //console.log(getFileName)
-    const storageReference = ref(storage, `ecommerce/${getFileName}`);
-    const uploadImage = uploadBytesResumable(storageReference, file);
-
-    return new Promise((resolve, reject) => {
-
-        uploadImage.on(
-            "state_changed",
-            (snapshot) => { },
-            (error) => {
-                console.log(error);
-                reject(error);
-            },
-            () => {
-                getDownloadURL(uploadImage.snapshot.ref)
-                    .then((downloadUrl) => resolve(downloadUrl))
-                    .catch((error) => reject(error));
-            }
-        );
-    });
-}
 const initialFormData = {
     name: "",
     price: 0,
@@ -82,20 +46,27 @@ export default function AdminAddNewProduct() {
 
 
     async function handleImage(event) {
+        const selectedFile = event.target.files[0];
 
-        const extractImageUrl = await helperForUPloadingImageToFirebase(
-            event.target.files[0]
-        );
+        if (!selectedFile) return;
 
+        try {
+            setComponentLevelLoader({ loading: true, id: "" });
 
-        if (extractImageUrl !== "") {
+            const { url } = await uploadImage(selectedFile, "ecommerce");
+
             setFormData({
                 ...formData,
-                imageUrl: extractImageUrl,
+                imageUrl: url,
             });
-
+        } catch (error) {
+            console.log(error);
+            toast.error(error.message || "Failed to upload image ! Please try again", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+        } finally {
+            setComponentLevelLoader({ loading: false, id: "" });
         }
-
     }
 
     function handleTileClick(getCurrentItem) {
@@ -199,7 +170,7 @@ export default function AdminAddNewProduct() {
                     )}
                     <button
                         onClick={handleAddProduct}
-                        className="inline-flex w-full items-center justify-center bg-black px-6 py-4 text-lg text-white font-medium uppercase tracking-wide"
+                        className="inline-flex w-full items-center justify-center bg-brand hover:bg-brand-dark transition-colors px-6 py-4 text-lg text-white font-medium uppercase tracking-wide"
                     > {componentLevelLoader && componentLevelLoader.loading ? (
                         <ComponentLevelLoader
                             text={currentUpdatedProduct !== null ? 'Updating Product' : "Adding Product"}

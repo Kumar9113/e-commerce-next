@@ -54,7 +54,7 @@ export default function CommonDetails({ item }) {
                 <div className="flex flex-row items-start lg:flex-col">
                   <button
                     type="button"
-                    className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-100 text-center"
+                    className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-brand-light text-center"
                   >
                     <img
                       src={item.imageUrl}
@@ -64,7 +64,7 @@ export default function CommonDetails({ item }) {
                   </button>
                   <button
                     type="button"
-                    className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-100 text-center"
+                    className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-brand-light text-center"
                   >
                     <img
                       src={item.imageUrl}
@@ -77,7 +77,7 @@ export default function CommonDetails({ item }) {
             </div>
           </div>
           <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-ink">
               {item && item.name}
             </h1>
             <div className="mt-10 flex flex-col items-center justify-between space-y-4 botder-t border-b py-4 sm:flex-row sm:space-y-0">
@@ -89,7 +89,7 @@ export default function CommonDetails({ item }) {
                   ₹{item && item.price}
                 </h1>
                 {item.onSale === "yes" ? (
-                  <h1 className="text-3xl font-bold text-red-700">{`₹${(
+                  <h1 className="text-3xl font-bold text-sienna">{`₹${(
                     item.price -
                     item.price * (item.priceDrop / 100)
                   ).toFixed(2)}`}</h1>
@@ -98,7 +98,7 @@ export default function CommonDetails({ item }) {
               <button
                 type="button"
                 onClick={() => handleAddToCart(item)}
-                className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium tracking-wide uppercase text-white"
+                className="mt-1.5 inline-block bg-brand hover:bg-brand-dark transition-colors px-5 py-3 text-xs font-medium tracking-wide uppercase text-white"
               >
                 {componentLevelLoader && componentLevelLoader.loading ? (
                   <ComponentLevelLoader
@@ -114,19 +114,19 @@ export default function CommonDetails({ item }) {
               </button>
             </div>
             <ul className="mt-8 space-y-2">
-              <li className="flex items-center text-left text-sm font-medium text-gray-600">
+              <li className="flex items-center text-left text-sm font-medium text-muted">
                 {item && item.deliveryInfo}
               </li>
-              <li className="flex items-center text-left text-sm font-medium text-gray-600">
+              <li className="flex items-center text-left text-sm font-medium text-muted">
                 {"Cancel anytime"}
               </li>
             </ul>
             <div className="lg:col-span-3">
-              <div className="border-b border-gray-400">
+              <div className="border-b border-brand-light">
                 <nav className="flex gap-4">
                   <a
                     href="#"
-                    className="border-b-2 border-gray-900 py-4 text-sm font-medium text-gray-900"
+                    className="border-b-2 border-ink py-4 text-sm font-medium text-ink"
                   >
                     Description
                   </a>

@@ -73,24 +73,24 @@ export default function ProductButton({ item }) {
           setCurrentUpdatedProduct(item);
           router.push("/admin-view/add-product");
         }}
-        className="mt-1.5 flex w-full justify-center bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+        className="mt-1.5 flex w-full justify-center bg-brand px-5 py-3 text-xs font-medium uppercase tracking-wide text-white transition-colors hover:bg-brand-dark"
       >
         Update
       </button>
       <button
         onClick={() => handleDeleteProduct(item)}
-        className="mt-1.5 flex w-full justify-center bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+        className="mt-1.5 flex w-full justify-center border border-sienna px-5 py-3 text-xs font-medium uppercase tracking-wide text-sienna transition-colors hover:bg-sienna hover:text-white"
       >
         {componentLevelLoader &&
           componentLevelLoader.loading &&
           item._id === componentLevelLoader.id ? (
           <ComponentLevelLoader
             text={"Deleting Product"}
-            color={"#ffffff"}
+            color={"#B65C38"}
             loading={componentLevelLoader && componentLevelLoader.loading}
           />
         ) : (
-          "DELETE"
+          "Delete"
         )}
       </button>
     </>
@@ -98,7 +98,7 @@ export default function ProductButton({ item }) {
     <>
       <button
         onClick={() => handleAddToCart(item)}
-        className="mt-1.5 flex w-full justify-center bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+        className="mt-1.5 flex w-full justify-center bg-brand px-5 py-3 text-xs font-medium uppercase tracking-wide text-white transition-colors hover:bg-brand-dark"
       >
         {componentLevelLoader &&
           componentLevelLoader.loading &&
@@ -109,7 +109,7 @@ export default function ProductButton({ item }) {
             loading={componentLevelLoader && componentLevelLoader.loading}
           />
         ) : (
-          "Add To Cart"
+          "Add to cart"
         )}
       </button>
     </>

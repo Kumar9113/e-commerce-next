@@ -83,7 +83,7 @@ export default function CartModal() {
           <ul role="list" className="-my-6 divide-y divide-gray-300">
             {cartItems.map((cartItem) => (
               <li key={cartItem.id} className="flex py-6">
-                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-brand-light">
                   <img
                     src={
                       cartItem &&
@@ -96,7 +96,7 @@ export default function CartModal() {
                 </div>
                 <div className="ml-4 flex flex-1 flex-col">
                   <div>
-                    <div className="flex justify-between text-base font-medium text-gray-900">
+                    <div className="flex justify-between text-base font-medium text-ink">
                       <h3>
                         <a>
                           {cartItem &&
@@ -105,7 +105,7 @@ export default function CartModal() {
                         </a>
                       </h3>
                     </div>
-                    <p className="mt-1 text-sm text-gray-600">
+                    <p className="mt-1 text-sm text-muted">
                       ₹
                       {cartItem &&
                         cartItem.productID &&
@@ -147,7 +147,7 @@ export default function CartModal() {
               router.push("/cart");
               setShowCartModal(false);
             }}
-            className="mt-1.5 w-full inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+            className="mt-1.5 w-full inline-block bg-brand hover:bg-brand-dark transition-colors text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
           >
             Go To Cart
           </button>
@@ -158,11 +158,11 @@ export default function CartModal() {
               router.push("/checkout");
               setShowCartModal(false);
             }}
-            className="mt-1.5 w-full inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide disabled:opacity-50"
+            className="mt-1.5 w-full inline-block bg-brand hover:bg-brand-dark transition-colors text-white px-5 py-3 text-xs font-medium uppercase tracking-wide disabled:opacity-50"
           >
             Checkout
           </button>
-          <div className="mt-6 flex justify-center text-center text-sm text-gray-600">
+          <div className="mt-6 flex justify-center text-center text-sm text-muted">
             <button type="button" className="font-medium text-grey">
               Continue Shopping
               <span aria-hidden="true"> &rarr;</span>

@@ -1,19 +1,32 @@
 import mongoose from "mongoose";
+
 const configOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
-//console.log(process.env.DATABASE_URL);
 
 const connectToDB = async () => {
-  const connectionUrl = "mongodb+srv://Kumar:Kumar%409113@cluster0.xrhjxpn.mongodb.net/?retryWrites=true&w=majority";
+  const connectionUrl = process.env.DATABASE_URL;
 
-  mongoose
-    .connect(connectionUrl, configOptions)
-    .then(() => console.log("Ecommerce database connected successfully!"))
-    .catch((err) =>
-      console.log(`Getting Error from DB connection ${err.message}`)
+  if (!connectionUrl) {
+    throw new Error(
+      "DATABASE_URL is not set. Please add it to your .env.local file (see .env.example)."
     );
+  }
+
+  // Reuse an existing connection instead of opening a new one on every call.
+  if (mongoose.connection.readyState === 1) {
+    return mongoose.connection;
+  }
+
+  try {
+    await mongoose.connect(connectionUrl, configOptions);
+    console.log("Ecommerce database connected successfully!");
+    return mongoose.connection;
+  } catch (err) {
+    console.log(`Getting Error from DB connection ${err.message}`);
+    throw err;
+  }
 };
 
 export default connectToDB;
